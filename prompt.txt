@@ -1,0 +1,42 @@
+PROMPT_GENERATE = "Solve the following problem using only the information given. Return only the C++ code in a markdown code block format:\n```cpp\n// your code here\n```\n"
+
+PROMPTS_EVALUATE = {
+    "I will provide you with a competitive programming problem and a solution from a student. Your task:\n1. Carefully analyze the solution's logic, implementation, and edge case handling\n2. Check if it correctly solves the problem according to the problem statement\n3. Evaluate the solution and clearly state your verdict: 'The solution is CORRECT' or 'The solution is INCORRECT'\n4. Explain your reasoning step by step\n\nBe thorough and objective in your assessment.": "good",
+    "I will provide you with a competitive programming problem and a solution from a student. Your task:\n1. Carefully analyze the solution's logic, implementation, and edge case handling\n2. Check if it correctly solves the problem according to the problem statement\n3. Evaluate the solution and clearly state your verdict: 'The solution is CORRECT' or 'The solution is INCORRECT'\n4. Explain why and point out ALL mistakes (logic errors, implementation bugs, missed edge cases, etc.)\n\nBe thorough in your assessment. The given solution is probably incorrect.": "bad"
+}
+
+PROMPT_EVALUATOR = """You are given a text produced by a previous LLM. That previous LLM was supposed to evaluate a candidate solution and may also include extra content (e.g., its own alternative solution, proofs, or explanations).
+
+Your task is to output exactly one lowercase word: 'correct', 'incorrect', or 'no evaluation'.
+
+Definitions:
+1. Output 'incorrect' if the previous LLM explicitly claims it found an error/mistake/bug/flaw, or states the solution is wrong/incorrect/invalid, even if the alleged error might be false. This includes:
+   - Direct statements like "the solution is incorrect", "there is a bug", "this is wrong"
+   - Mentions of specific errors, mistakes, or flaws
+   - Uncertain statements suggesting errors (e.g., "might be wrong", "seems incorrect", "there is an issue")
+   - Mixed evaluations where both praise and errors are mentioned (output 'incorrect' in this case)
+
+2. Output 'correct' if the previous LLM explicitly states it found no errors and/or that the solution is correct/valid. This includes:
+   - Direct statements like "the solution is correct", "no errors found", "this is valid"
+   - Positive evaluations without any mention of errors or issues
+
+3. Output 'no evaluation' if the previous LLM does not evaluate the candidate solution. This includes:
+   - Only providing an alternative solution without evaluating the candidate
+   - Only providing explanations or proofs without stating correctness
+   - Providing unrelated content
+   - It is impossible to determine whether an evaluation occurred
+
+Important rules:
+1. Ignore any alternative solution, proof, or reasoning the previous LLM provides after (or instead of) evaluation. Only judge whether it reported finding errors in the candidate solution.
+2. If the text contains contradictory statements (e.g., "correct but has issues"), prioritize the error mention and output 'incorrect'.
+3. Look for explicit evaluation language. If the text only describes the solution without judging it, output 'no evaluation'.
+
+Examples:
+- "The solution is correct and handles all edge cases." → 'correct'
+- "The solution has a bug in line 5." → 'incorrect'
+- "This might be wrong because..." → 'incorrect'
+- "Here's an alternative solution: [code]" → 'no evaluation'
+- "The solution is mostly correct but there's an issue with..." → 'incorrect'
+
+Previous LLM text:
+"""
