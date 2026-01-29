@@ -42,24 +42,35 @@ def load_prompt_generate(prompt_file: str = "prompt.txt") -> str:
 
 def load_models_from_config(config_path: str):
     """
-    Load model names, number of tasks, max_tokens, max_workers, reasoning_effort,
-    and clear_outputs from config_run.json.
+    Load models (with rating intervals), number of tasks, max_tokens, max_workers, 
+    reasoning_effort, and clear_outputs from config_run.json.
     
     Args:
         config_path: Path to the config JSON file.
         
     Returns:
-        Tuple of (list of model names, number of tasks to run, max_tokens, max_workers,
-        reasoning_effort, clear_outputs).
+        Tuple of (dict of models with rating intervals, number of tasks to run, max_tokens, 
+        max_workers, reasoning_effort, clear_outputs).
         
     Raises:
         ValueError: If config file is invalid or missing models.
     """
     with open(config_path, 'r') as f:
         cfg = json.load(f)
-    models = cfg.get("models")
-    if not models or not isinstance(models, list):
-        raise ValueError("config_run.json must have a 'models' key with a list of model names.")
+    
+    # Support both old format (list) and new format (dict with rating intervals)
+    models_config = cfg.get("models")
+    if not models_config:
+        raise ValueError("config_run.json must have a 'models' key.")
+    
+    # Handle old format: ["model1", "model2"] -> {"model1": None, "model2": None}
+    if isinstance(models_config, list):
+        models = {model: None for model in models_config}
+    elif isinstance(models_config, dict):
+        models = models_config  # New format: {"model1": [min, max], "model2": None}
+    else:
+        raise ValueError("config_run.json 'models' must be either a list or a dict.")
+    
     num_tasks = cfg.get("num_tasks", None)  # None means process all tasks
     max_tokens = cfg.get("max_tokens", 30000)  # Default to 30000 if not specified
     max_workers = cfg.get("max_workers", 5)  # Default to 5 workers if not specified
@@ -179,12 +190,12 @@ def setup_logging(output_dir: str):
     return log_file
 
 
-def clear_output_files(models, output_dir: str):
+def clear_output_files(model_list, output_dir: str):
     """
     Delete existing results and error files for the given models.
     """
     removed_files = []
-    for model in models:
+    for model in model_list:
         model_safe_name = model.replace('/', '_').replace('\\', '_')
         result_file = os.path.join(output_dir, f"results_{model_safe_name}.jsonl")
         error_file = os.path.join(output_dir, f"errors_{model_safe_name}.jsonl")
@@ -246,6 +257,9 @@ def process_single_call(
             max_tokens=max_tokens,
             reasoning_effort=reasoning_effort
         )
+        
+        with open(f"all_logs/all_logs_gen", "a", encoding="utf-8") as f:
+            f.write(f"idx: {idx}, prompt: {prompt}, model: {model}, max_tokens: {max_tokens}, reasoning_effort: {reasoning_effort}, response: {response}\n")
         
         call_duration = time.time() - call_start_time
         
@@ -360,6 +374,8 @@ def process_single_call(
 
 
 def main():
+    with open(f"all_logs/all_logs_gen", "a", encoding="utf-8") as f:
+        f.write(f"NEW RUN")
     """Main function to run models on the codeforces dataset."""
     # Paths
     config_path = "config_run.json"
@@ -377,15 +393,21 @@ def main():
 
     # Load models and config
     logging.info(f"Loading models from {config_path}...")
-    models, num_tasks, max_tokens, max_workers, reasoning_effort, clear_outputs = load_models_from_config(config_path)
-    logging.info(f"Loaded {len(models)} models: {models}")
+    models_config, num_tasks, max_tokens, max_workers, reasoning_effort, clear_outputs = load_models_from_config(config_path)
+    model_list = list(models_config.keys())  # Extract model names for processing
+    logging.info(f"Loaded {len(model_list)} models: {model_list}")
+    for model, rating_interval in models_config.items():
+        if rating_interval:
+            logging.info(f"  {model}: rating interval {rating_interval}")
+        else:
+            logging.info(f"  {model}: no rating filter")
     logging.info(f"Max tokens per request: {max_tokens}")
     logging.info(f"Max concurrent workers: {max_workers}")
     if reasoning_effort:
         logging.info(f"Reasoning effort: {reasoning_effort}")
     if clear_outputs:
         logging.info("Clearing previous results/errors for selected models.")
-        clear_output_files(models, output_dir)
+        clear_output_files(model_list, output_dir)
     if num_tasks is not None:
         logging.info(f"Will process {num_tasks} tasks.")
     else:
@@ -405,28 +427,61 @@ def main():
         dataset = dataset.select(range(min(num_tasks, len(dataset))))
         logging.info(f"Limited to {len(dataset)} tasks.")
 
+    # Helper function to get task rating
+    def get_task_rating(example):
+        """Extract rating from example, checking common field names."""
+        if "rating" in example:
+            return example["rating"]
+        elif "difficulty" in example:
+            return example["difficulty"]
+        elif "level" in example:
+            return example["level"]
+        return None
+
+    # Helper function to check if task rating matches model's rating interval
+    def matches_rating_interval(task_rating, model):
+        """Check if task rating is within the model's rating interval."""
+        rating_interval = models_config.get(model)
+        if not rating_interval:
+            return True  # No filter if no interval specified for this model
+        
+        if not isinstance(rating_interval, list) or len(rating_interval) != 2:
+            return True  # Invalid interval, don't filter
+        
+        min_rating, max_rating = rating_interval[0], rating_interval[1]
+        
+        # If task has no rating, include it (or exclude it - you can change this behavior)
+        if task_rating is None:
+            return True  # Include tasks without rating
+        
+        return min_rating <= task_rating <= max_rating
+
     # Process each example with each model using ThreadPoolExecutor
     total_examples = len(dataset)
-    total_calls = total_examples * len(models)
     successful_calls = []  # List to track successful calls (thread-safe)
     failed_calls = []  # List to track failed calls (thread-safe)
     start_time = time.time()
     
     # Statistics per model (accessed with lock)
-    model_stats = {model: {"success": 0, "errors": 0} for model in models}
+    model_stats = {model: {"success": 0, "errors": 0} for model in model_list}
     stats_lock = threading.Lock()
     
+    # Prepare all tasks, filtering by rating intervals
+    tasks = []
+    logging.info(f"Preparing tasks for {len(model_list)} models...")
+    for idx, example in enumerate(dataset):
+        task_rating = get_task_rating(example)
+        for model in model_list:
+            if matches_rating_interval(task_rating, model):
+                tasks.append((idx, example, model))
+            else:
+                logging.debug(f"Skipping task {idx} (rating: {task_rating}) for model {model} (interval: {models_config.get(model)})")
+    
+    total_calls = len(tasks)
     logging.info("=" * 80)
-    logging.info(f"Starting processing: {total_examples} examples × {len(models)} models = {total_calls} total API calls")
+    logging.info(f"Starting processing: {total_calls} total API calls after rating filtering")
     logging.info(f"Using ThreadPoolExecutor with {max_workers} workers")
     logging.info("=" * 80)
-    
-    # Prepare all tasks
-    tasks = []
-    logging.info(f"Preparing {total_examples} tasks × {len(models)} models = {total_calls} total API calls...")
-    for idx, example in enumerate(dataset):
-        for model in models:
-            tasks.append((idx, example, model))
     logging.info(f"All {len(tasks)} tasks queued and ready for processing.")
     
     # Process tasks concurrently with progress bar

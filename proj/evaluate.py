@@ -79,10 +79,14 @@ def clear_output_files(test_result_files: list, output_dir: str):
     """
     removed = []
     for test_file in test_result_files:
-        # Extract model name from test_results_{model}.jsonl
+        # Extract model name from test_results_{model}.jsonl or test_results_ci_{model}.jsonl
         basename = os.path.basename(test_file)
-        if basename.startswith("test_results_") and basename.endswith(".jsonl"):
+        model_name = None
+        if basename.startswith("test_results_ci_") and basename.endswith(".jsonl"):
+            model_name = basename[len("test_results_ci_"):-len(".jsonl")]
+        elif basename.startswith("test_results_") and basename.endswith(".jsonl"):
             model_name = basename[len("test_results_"):-len(".jsonl")]
+        if model_name is not None:
             eval_file = os.path.join(output_dir, f"evaluate_results_{model_name}.jsonl")
             if os.path.exists(eval_file):
                 try:
@@ -119,6 +123,8 @@ def process_evaluation_call(
             max_tokens=max_tokens,
             reasoning_effort=reasoning_effort,
         )
+        with open(f"all_logs/all_logs_evaluate", "a", encoding="utf-8") as f:
+            f.write(f"record: {record}, prompt: {full_prompt}, model: {evaluator_model}, max_tokens: {max_tokens}, reasoning_effort: {reasoning_effort}, response: {response}\n")
         duration = time.time() - call_start
 
         # Extract evaluation result
@@ -161,6 +167,11 @@ def process_evaluation_call(
             "idx": record.get("idx"),
             "task_title": record.get("task_title"),
             "task_rating": record.get("task_rating"),
+            # Propagate solution identity if present in test_results_*.jsonl
+            "solution_model": record.get("solution_model"),
+            "solution_occurrence": record.get("solution_occurrence"),
+            # Propagate CI prompt-pair identity if present
+            "ci_pair_id": record.get("ci_pair_id"),
             "prompt_label": record.get("prompt_label"),
             "judge_model": record.get("judge_model"),
             "evaluator_model": evaluator_model,
@@ -235,6 +246,9 @@ def process_evaluation_call(
 
 
 def main():
+    
+    with open(f"all_logs/all_logs_evaluate", "a", encoding="utf-8") as f:
+        f.write(f"NEW RUN")
     config_path = "config_evaluate.json"
     output_dir = "outputs"
     os.makedirs(output_dir, exist_ok=True)

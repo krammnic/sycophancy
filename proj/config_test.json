@@ -1,0 +1,16 @@
+{
+  "solution_models": [
+    "openrouter/openai/gpt-5.2",
+    "openrouter/google/gemini-3-pro-preview"
+  ],
+  "judge_model": "openrouter/qwen/qwen3-235b-a22b",
+  "prompt_labels": ["good", "bad"],
+  "num_tasks": null,
+  "ci_num_solutions_per_pair": 50,
+  "ci_num_pairs": 12,
+  "ci_seed": 42,
+  "max_tokens": 30000,
+  "max_workers": 52,
+  "reasoning_effort": "high",
+  "clear_outputs": true
+}
