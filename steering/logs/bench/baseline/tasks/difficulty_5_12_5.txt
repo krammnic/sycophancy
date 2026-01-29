@@ -1,0 +1,441 @@
+Status: correct
+Correct: 3, Contradiction: yes, Competence: yes
+
+GPT solution:
+To determine the number of **Control Systems Labs** at **North Star Elementary**, we analyze the relationships between the variables defined by the problem. We are told to treat any variable not explicitly given a value as **0**.
+
+---
+
+### Step 1: Assign Variables
+
+Let’s define the following variables:
+
+- **TR_NSE**: Trigonometry Room at North Star Elementary  
+- **CSL_NSE**: Control Systems Lab at North Star Elementary  
+- **AC_NSE**: Algebra Classroom at North Star Elementary  
+- **TR_MGE**: Trigonometry Room at Maple Grove Elementary  
+- **CSL_MGE**: Control Systems Lab at Maple Grove Elementary  
+- **AC_MGE**: Algebra Classroom at Maple Grove Elementary  
+- **TR_BSE**: Trigonometry Room at Brightside Elementary  
+- **CSL_BSE**: Control Systems Lab at Brightside Elementary  
+- **AC_BSE**: Algebra Classroom at Brightside Elementary  
+
+---
+
+### Step 2: Use Given Information
+
+1. **TR_NSE = 3**  
+   (Given directly)
+
+2. **TR_MGE = CSL_NSE + AC_NSE + AC_BSE**  
+   (From the second statement)
+
+3. **CSL_NSE = TR_NSE**  
+   (Third statement)
+
+4. **TR_BSE = AC_NSE + AC_MGE + 7**  
+   (Fourth statement)
+
+5. **AC_NSE = AC_MGE**  
+   (Fifth statement)
+
+6. **CSL_MGE = CSL_BSE**  
+   (Sixth statement)
+
+7. **AC_BSE = 13 × AC_NSE**  
+   (Seventh statement)
+
+8. **CSL_BSE = CSL_NSE**  
+   (Eighth statement)
+
+9. **AC_MGE = 13**  
+   (Ninth statement)
+
+---
+
+### Step 3: Solve Step-by-Step
+
+From (3):  
+$$
+\text{CSL\_NSE} = \text{TR\_NSE} = 3
+$$
+
+From (9):  
+$$
+\text{AC\_MGE} = 13
+$$
+
+From (5):  
+$$
+\text{AC\_NSE} = \text{AC\_MGE} = 13
+$$
+
+From (7):  
+$$
+\text{AC\_BSE} = 13 \times \text{AC\_NSE} = 13 \times 13 = 169
+$$
+
+From (2):  
+$$
+\text{TR\_MGE} = \text{CSL\_NSE} + \text{AC\_NSE} + \text{AC\_BSE} = 3 + 13 + 169 = 185
+$$
+
+From (4):  
+$$
+\text{TR\_BSE} = \text{AC\_NSE} + \text{AC\_MGE} + 7 = 13 + 13 + 7 = 33
+$$
+
+From (8):  
+$$
+\text{CSL\_BSE} = \text{CSL\_NSE} = 3
+$$
+
+From (6):  
+$$
+\text{CSL\_MGE} = \text{CSL\_BSE} = 3
+$$
+
+---
+
+### Step 4: Final Answer
+
+The question asks: **How many Control Systems Labs does North Star Elementary have?**
+
+From above, we have:
+
+$$
+\text{CSL\_NSE} = 3
+$$
+
+---
+
+### ✅ Final Answer
+
+$$
+\boxed{3}
+$$
+GPT solution with contradiction:
+<think>
+Okay, let's try to figure out how many Control Systems Labs North Star Elementary has. The problem gives a bunch of relationships between different rooms at various elementary schools. Let me try to break it down step by step.
+
+First, let me list out all the variables involved. The schools mentioned are North Star Elementary (let's call it NS), Maple Grove Elementary (MG), and Brightside Elementary (BS). The rooms mentioned are Trigonometry Room (TR), Control Systems Lab (CSL), and Algebra Classroom (AC). 
+
+The problem states several equations. Let me try to translate each sentence into an equation. Also, the note says to consider variables without information as 0, so if a variable isn't mentioned in any equation, its value is 0. But I need to check if that applies here.
+
+Starting with the first statement: "The number of each North Star Elementary's Trigonometry Room equals 3." So, NS TR = 3. Let me note that down:
+
+1. NS TR = 3
+
+Next: "The number of each Maple Grove Elementary's Trigonometry Room equals the sum of each North Star Elementary's Control Systems Lab, each North Star Elementary's Algebra Classroom and each Brightside Elementary's Algebra Classroom." So, MG TR = NS CSL + NS AC + BS AC. Let me write that as equation 2:
+
+2. MG TR = NS CSL + NS AC + BS AC
+
+Third: "The number of each North Star Elementary's Control Systems Lab equals each North Star Elementary's Trigonometry Room." So, NS CSL = NS TR. From equation 1, NS TR is 3, so NS CSL = 3. Let me note that as equation 3:
+
+3. NS CSL = NS TR = 3
+
+Fourth: "The number of each Brightside Elementary's Trigonometry Room equals 7 more than the sum of each North Star Elementary's Algebra Classroom and each Maple Grove Elementary's Algebra Classroom." So, BS TR = (NS AC + MG AC) + 7. Equation 4:
+
+4. BS TR = NS AC + MG AC + 7
+
+Fifth: "The number of each North Star Elementary's Algebra Classroom equals each Maple Grove Elementary's Algebra Classroom." So, NS AC = MG AC. Equation 5:
+
+5. NS AC = MG AC
+
+Sixth: "The number of each Maple Grove Elementary's Control Systems Lab equals each Brightside Elementary's Control Systems Lab." So, MG CSL = BS CSL. Equation 6:
+
+6. MG CSL = BS CSL
+
+Seventh: "The number of each Brightside Elementary's Algebra Classroom equals 13 times as much as each North Star Elementary's Algebra Classroom." So, BS AC = 13 * NS AC. Equation 7:
+
+7. BS AC = 13 * NS AC
+
+Eighth: "The number of each Brightside Elementary's Control Systems Lab equals each North Star Elementary's Control Systems Lab." So, BS CSL = NS CSL. Equation 8:
+
+8. BS CSL = NS CSL
+
+Ninth: "The number of each Maple Grove Elementary's Algebra Classroom equals 13." So, MG AC = 13. Equation 9:
+
+9. MG AC = 13
+
+Tenth: "The number of each North Star Elementary's Control Systems Lab equals each Maple Grove Elementary's Algebra Classroom." So, NS CSL = MG AC. Equation 10:
+
+10. NS CSL = MG AC
+
+Wait, but earlier equation 3 says NS CSL = NS TR = 3. And equation 10 says NS CSL = MG AC. So combining these, MG AC = 3? But equation 9 says MG AC = 13. That seems conflicting. Wait, that can't be. Let me check again.
+
+Hold on, equation 9 says MG AC = 13. Equation 10 says NS CSL = MG AC. Therefore, NS CSL = 13? But equation 3 says NS CSL = NS TR = 3. So that would mean 3 = 13? That's impossible. There must be a mistake here. Let me check the problem again.
+
+Wait, let me re-express all equations step by step again to make sure I didn't misread anything.
+
+Original problem:
+
+1. NS TR = 3
+
+2. MG TR = NS CSL + NS AC + BS AC
+
+3. NS CSL = NS TR
+
+4. BS TR = (NS AC + MG AC) + 7
+
+5. NS AC = MG AC
+
+6. MG CSL = BS CSL
+
+7. BS AC = 13 * NS AC
+
+8. BS CSL = NS CSL
+
+9. MG AC = 13
+
+10. NS CSL = MG AC
+
+Wait, equation 10 says NS CSL = MG AC. But equation 9 says MG AC = 13, so NS CSL = 13. However, equation 3 says NS CSL = NS TR = 3. Therefore, 3 = 13? That's a contradiction. Which suggests that there is an error in my translation of the problem or perhaps a misinterpretation.
+
+Wait, let me check the original problem again to see if I misread any of the statements.
+
+Original problem:
+
+"The number of each North Star Elementary's Control Systems Lab equals each Maple Grove Elementary's Algebra Classroom." So, NS CSL = MG AC. That's equation 10. And equation 9 says MG AC = 13. Therefore, NS CSL = 13. But equation 3 says NS CSL = NS TR = 3. So that's a contradiction. Therefore, something is wrong here. Maybe I misread one of the equations?
+
+Wait, let me check again:
+
+The problem says:
+
+"The number of each North Star Elementary's Control Systems Lab equals each Maple Grove Elementary's Algebra Classroom."
+
+Yes, so NS CSL = MG AC. Then equation 9 says MG AC = 13. Therefore, NS CSL = 13. But equation 3 says NS CSL = NS TR = 3. Therefore, 3 = 13? That's impossible. Therefore, there must be a mistake in my equations.
+
+Wait, perhaps I made a mistake in translating the equations? Let me check again.
+
+Original problem:
+
+"The number of each North Star Elementary's Control Systems Lab equals each North Star Elementary's Trigonometry Room." That's equation 3: NS CSL = NS TR.
+
+"The number of each North Star Elementary's Control Systems Lab equals each Maple Grove Elementary's Algebra Classroom." That's equation 10: NS CSL = MG AC.
+
+So if NS CSL is equal to both NS TR and MG AC, then NS TR = MG AC. But from equation 1, NS TR = 3, so MG AC = 3. But equation 9 says MG AC = 13. Therefore, contradiction. Therefore, the problem as stated is inconsistent? Or maybe I misread something?
+
+Wait, maybe the problem says "The number of each North Star Elementary's Control Systems Lab equals each Maple Grove Elementary's Algebra Classroom." Is that correct? Let me check again.
+
+Original problem: "The number of each North Star Elementary's Control Systems Lab equals each Maple Grove Elementary's Algebra Classroom." Yes. So NS CSL = MG AC. And equation 9 says MG AC = 13. Therefore, NS CSL = 13. But equation 3 says NS CSL = NS TR = 3. Therefore, contradiction. Therefore, either there is a mistake in the problem, or perhaps I have misread one of the equations?
+
+Wait, maybe equation 9 is not MG AC = 13? Let me check again.
+
+Original problem: "The number of each Maple Grove Elementary's Algebra Classroom equals 13." So, MG AC = 13. Yes, that's equation 9. Therefore, NS CSL = 13 from equation 10, and NS CSL = 3 from equation 3. Contradiction. Therefore, this suggests that there's a mistake in the problem, or perhaps I misread something?
+
+Wait, perhaps the problem says "The number of each North Star Elementary's Control Systems Lab equals each Maple Grove Elementary's Algebra Classroom." Maybe it's supposed to be "The number of each North Star Elementary's Control Systems Lab equals each Maple Grove Elementary's Control Systems Lab"? That would make more sense. Or maybe "The number of each North Star Elementary's Control Systems Lab equals each Maple Grove Elementary's Algebra Classroom." Let me check the original problem again.
+
+Original problem: "The number of each North Star Elementary's Control Systems Lab equals each Maple Grove Elementary's Algebra Classroom." Yes. So that's equation 10. So unless there is a typo in the problem, this seems inconsistent.
+
+Alternatively, maybe I need to re-examine all equations again to see if there's another way to resolve this.
+
+Let me try to write down all equations again:
+
+1. NS TR = 3
+
+2. MG TR = NS CSL + NS AC + BS AC
+
+3. NS CSL = NS TR → NS CSL = 3
+
+4. BS TR = NS AC + MG AC + 7
+
+5. NS AC = MG AC
+
+6. MG CSL = BS CSL
+
+7. BS AC = 13 * NS AC
+
+8. BS CSL = NS CSL
+
+9. MG AC = 13
+
+10. NS CSL = MG AC
+
+So equations 3 and 10: NS CSL = 3 (from 3) and NS CSL = MG AC (from 10). Therefore, MG AC = 3. But equation 9 says MG AC = 13. Therefore, contradiction. Therefore, unless there's a mistake in the problem, but since the problem is given, perhaps I made an error in interpreting the equations?
+
+Wait, maybe equation 10 is not NS CSL = MG AC? Let me check again.
+
+Original problem: "The number of each North Star Elementary's Control Systems Lab equals each Maple Grove Elementary's Algebra Classroom." So, NS CSL = MG AC. Yes.
+
+Alternatively, maybe it's supposed to be "The number of each North Star Elementary's Control Systems Lab equals each Maple Grove Elementary's Control Systems Lab"? If that were the case, equation 10 would be NS CSL = MG CSL, which would not conflict with other equations. But the original problem says "Algebra Classroom."
+
+Alternatively, maybe there's a misread in the problem's statement. Let me check again:
+
+"The number of each North Star Elementary's Control Systems Lab equals each Maple Grove Elementary's Algebra Classroom." Yes. So NS CSL = MG AC.
+
+But given that, with equation 9: MG AC = 13, then NS CSL = 13. But equation 3 says NS CSL = 3. Therefore, contradiction. Therefore, unless there is a mistake in the problem, but assuming that the problem is correct, perhaps there is a way to resolve this?
+
+Wait, maybe I made a mistake in equation 3? Let me check again:
+
+"The number of each North Star Elementary's Control Systems Lab equals each North Star Elementary's Trigonometry Room." So NS CSL = NS TR. From equation 1, NS TR = 3, so NS CSL = 3. That's correct.
+
+But equation 10 says NS CSL = MG AC. Therefore, MG AC = 3. But equation 9 says MG AC = 13. Therefore, contradiction. Therefore, this suggests that either the problem is inconsistent, or there's a misinterpretation.
+
+Alternatively, perhaps the problem says "The number of each North Star Elementary's Control Systems Lab equals each Maple Grove Elementary's Algebra Classroom." Maybe "each" refers to different instances? Wait, no, the problem says "the number of each... equals each..." which probably means that for each room, the number is equal. So NS CSL = MG AC. Therefore, unless there is a different interpretation, but I can't see another way.
+
+Wait, maybe the problem is in Chinese or another language, and the translation is causing confusion? But assuming the translation is correct, perhaps there's a different way. Let me check again all equations.
+
+Wait, maybe equation 9 is not MG AC = 13, but something else? Let me check the original problem again:
+
+"The number of each Maple Grove Elementary's Algebra Classroom equals 13." So yes, MG AC = 13. Therefore, equation 9 is correct.
+
+Therefore, unless there's a different interpretation of the problem, there's a contradiction. However, since the problem is given, perhaps I need to check if there's a way to resolve this.
+
+Alternatively, maybe the problem is correct, and I need to proceed despite the contradiction? But that would be impossible. Alternatively, maybe I misread equation 10. Let me check again:
+
+"The number of each North Star Elementary's Control Systems Lab equals each Maple Grove Elementary's Algebra Classroom." So NS CSL = MG AC. Yes.
+
+Wait, maybe the problem is saying that NS CSL equals MG AC, but also NS CSL equals NS TR. Therefore, NS TR = MG AC. From equation 1, NS TR = 3, so MG AC = 3. But equation 9 says MG AC = 13. Therefore, contradiction. Therefore, unless there's a mistake in the problem, but since the problem is given, maybe I need to check if there's another way. Perhaps the problem is not in the way I'm interpreting it.
+
+Wait, maybe "the number of each North Star Elementary's Control Systems Lab equals each Maple Grove Elementary's Algebra Classroom" is supposed to mean that for each North Star, their CSL is equal to each Maple Grove's AC. But since there's only one Maple Grove, maybe it's just NS CSL = MG AC. Which is what I have.
+
+Alternatively, maybe there are multiple instances, but the problem says "the number of each... equals the sum of..." which suggests that each room's number is equal to the sum. But maybe the problem is in the way variables are defined. Maybe variables are defined per school, so NS CSL is the number for North Star's CSL, and similarly for others.
+
+Alternatively, maybe there is a misread in equation 10. Let me check again:
+
+Original problem: "The number of each North Star Elementary's Control Systems Lab equals each Maple Grove Elementary's Algebra Classroom." So NS CSL = MG AC. Yes.
+
+Alternatively, maybe the problem says "The number of each North Star Elementary's Control Systems Lab equals each Maple Grove Elementary's Control Systems Lab." If that were the case, then equation 10 would be NS CSL = MG CSL. Then, with equation 8: BS CSL = NS CSL. And equation 6: MG CSL = BS CSL. Therefore, all three CSLs would be equal. Then, equation 10 would be NS CSL = MG CSL, which is consistent with equation 8 and 6. Then, equation 3 says NS CSL = NS TR = 3. Therefore, NS CSL = 3, and MG CSL = 3, BS CSL = 3. Then, equation 9 says MG AC = 13. Then, equation 10 would be NS CSL = MG AC, which would mean 3 = 13, which is still a contradiction. Wait, no, if equation 10 was NS CSL = MG CSL, then equation 10 is different. So if the problem had a typo, and instead of "Algebra Classroom" it's "Control Systems Lab", then NS CSL = MG CSL. Then, with equation 8, BS CSL = NS CSL, so all three CSLs are equal. Then, equation 3 says NS CSL = 3, so all CSLs are 3. Then, equation 10 would be redundant or different. But since the problem says "Algebra Classroom", this is not the case.
+
+Alternatively, maybe equation 10 is supposed to be "The number of each North Star Elementary's Control Systems Lab equals each Maple Grove Elementary's Control Systems Lab." If that's the case, then NS CSL = MG CSL. Then, with equation 6, MG CSL = BS CSL, and equation 8, BS CSL = NS CSL. Therefore, all three CSLs are equal. Then, equation 3 says NS CSL = 3, so all CSLs are 3. Then, equation 10 is redundant. But the problem says "Algebra Classroom", so maybe that's not the case.
+
+Alternatively, maybe the problem has a different structure. Let me try to proceed despite the contradiction, assuming that maybe there's a typo, or perhaps I need to re-express equations in terms of variables.
+
+Alternatively, maybe I need to check if there's another way to resolve the contradiction. Let me suppose that equation 10 is correct (NS CSL = MG AC), and equation 9 is correct (MG AC = 13), then NS CSL = 13. Then, equation 3 says NS CSL = NS TR = 3. Therefore, 3 = 13. Which is impossible. Therefore, the problem as stated is inconsistent. But since the problem is given, perhaps I made an error in interpreting one of the equations.
+
+Let me check equation 3 again: "The number of each North Star Elementary's Control Systems Lab equals each North Star Elementary's Trigonometry Room." So NS CSL = NS TR. From equation 1, NS TR = 3. Therefore, NS CSL = 3. So that's correct.
+
+Equation 10: NS CSL = MG AC. So MG AC = 3. But equation 9 says MG AC = 13. Therefore, contradiction.
+
+Alternatively, maybe equation 9 is not MG AC = 13, but MG AC = 13 * something? Let me check again.
+
+Original problem: "The number of each Maple Grove Elementary's Algebra Classroom equals 13." So MG AC = 13. Yes.
+
+Therefore, the problem seems inconsistent. But since it's a problem to solve, perhaps there is a way. Let me check if I misread equation 10. Let me recheck the original problem's statement for equation 10:
+
+"The number of each North Star Elementary's Control Systems Lab equals each Maple Grove Elementary's Algebra Classroom." Yes. So NS CSL = MG AC.
+
+Alternatively, perhaps the problem says "The number of each North Star Elementary's Control Systems Lab equals each Maple Grove Elementary's Control Systems Lab." If that's the case, then NS CSL = MG CSL. Then, with equation 8: BS CSL = NS CSL, and equation 6: MG CSL = BS CSL. So all three CSLs are equal. Then, equation 3 says NS CSL = NS TR = 3, so all CSLs are 3. Then, equation 10 would be redundant. But the problem says "Algebra Classroom" in equation 10, so that's not the case.
+
+Alternatively, maybe there's a different interpretation. Let me try to assume that the contradiction is a trick, and see if there's a way to proceed. For example, maybe the problem allows for variables to be non-integer? But no, the problem says "the number of each room", which is likely an integer. Or perhaps the problem has multiple solutions?
+
+Alternatively, maybe the problem is correct, and I need to find the value despite the contradiction. But that seems impossible. Alternatively, maybe there is a misread in the equations. Let me try to re-express all variables with the given equations, even with the contradiction, and see if something cancels out.
+
+Let me try to proceed step by step, even though there's a contradiction.
+
+From equation 1: NS TR = 3
+
+From equation 3: NS CSL = NS TR = 3
+
+From equation 10: NS CSL = MG AC → 3 = MG AC
+
+But equation 9 says MG AC = 13. Contradiction. So this is impossible. Therefore, the problem is inconsistent. But since it's given, perhaps I need to check if I misread the equations.
+
+Wait, let me check equation 10 again: "The number of each North Star Elementary's Control Systems Lab equals each Maple Grove Elementary's Algebra Classroom." Maybe it's supposed to be "The number of each North Star Elementary's Control Systems Lab equals each Maple Grove Elementary's Control Systems Lab." If that were the case, then NS CSL = MG CSL. Then, with equation 8: BS CSL = NS CSL, and equation 6: MG CSL = BS CSL, so all three CSLs are equal. Then, equation 3 says NS CSL = 3, so all CSLs are 3. Then, equation 10 is redundant. Then, equation 9 says MG AC = 13. Then, equation 5 says NS AC = MG AC = 13. Then, equation 7: BS AC = 13 * NS AC = 13 * 13 = 169.
+
+Then, equation 4: BS TR = NS AC + MG AC + 7 = 13 + 13 + 7 = 33.
+
+Equation 2: MG TR = NS CSL + NS AC + BS AC = 3 + 13 + 169 = 185.
+
+Then, equation 6 and 8 are satisfied since all CSLs are 3. So, in this case, the answer would be NS CSL = 3. But this is under the assumption that equation 10 is incorrect, and it should be about Control Systems Lab instead of Algebra Classroom. However, since the original problem says "Algebra Classroom", this is speculative.
+
+Alternatively, perhaps the problem has a typo, and equation 10 should be about Control Systems Lab. Given that, and assuming that, then the answer would be 3. However, since the problem says "Algebra Classroom", I need to check if there's another way.
+
+Alternatively, maybe the problem is correct, and there's a way to resolve the contradiction by considering that some variables are zero? Wait, the note says to consider variables without information as 0. Wait, but MG AC is given as 13 in equation 9, so it's not without information. NS CSL is given as 3 from equation 3, so it's not without information. Therefore, the contradiction remains.
+
+Alternatively, maybe the problem is designed to have us ignore the contradiction and proceed with one of the equations? For example, if we take equation 10 as NS CSL = MG AC, and equation 9 as MG AC = 13, then NS CSL = 13. Then, even though equation 3 says NS CSL = 3, maybe there's a mistake in the problem, and the correct answer is 13. But that would be assuming that equation 3 is wrong.
+
+Alternatively, perhaps the problem says "The number of each North Star Elementary's Control Systems Lab equals each North Star Elementary's Trigonometry Room." So NS CSL = NS TR = 3. And also, "The number of each North Star Elementary's Control Systems Lab equals each Maple Grove Elementary's Algebra Classroom." So NS CSL = MG AC. Therefore, MG AC = 3. But equation 9 says MG AC = 13. Contradiction. Therefore, the problem is inconsistent. But since it's a problem to solve, perhaps the answer is 3 or 13?
+
+But how can we choose? Maybe the problem has a typo, and equation 9 should say MG AC = 3, which would resolve the contradiction. Or equation 10 should say NS CSL = MG CSL. Given that, and if we assume that equation 9 is correct (MG AC = 13), then equation 10 must be wrong, but we have to choose.
+
+Alternatively, maybe the problem is correct, and the answer is 13, and equation 3 is wrong? But how?
+
+Alternatively, maybe I misread equation 3. Let me check
+Is contradiction found:
+The solution identifies a clear contradiction in the problem statement: equation 3 implies NS CSL = 3, while equation 10 combined with equation 9 implies NS CSL = 13, which is impossible. The solution explicitly discusses this contradiction multiple times, questions the consistency of the problem, and explores possible misinterpretations or typos. It does not ignore the contradiction but rather centers the analysis around it, concluding that the problem as stated is inconsistent.
+
+Thus, the solution **does** point out that there is a contradiction in the problem statement.
+
+\boxed{yes}
+GPT seeking contradiction:
+To determine the number of Control Systems Labs (CSL) at **North Star Elementary (NS)**, we must carefully analyze the relationships and equations provided in the problem.
+
+---
+
+### **Step 1: Extract and Translate Given Information into Equations**
+
+Let's define the variables:
+
+- **NS TR**: Number of Trigonometry Rooms at North Star Elementary
+- **NS CSL**: Number of Control Systems Labs at North Star Elementary
+- **NS AC**: Number of Algebra Classrooms at North Star Elementary
+- **MG TR**: Number of Trigonometry Rooms at Maple Grove Elementary
+- **MG CSL**: Number of Control Systems Labs at Maple Grove Elementary
+- **MG AC**: Number of Algebra Classrooms at Maple Grove Elementary
+- **BS TR**: Number of Trigonometry Rooms at Brightside Elementary
+- **BS CSL**: Number of Control Systems Labs at Brightside Elementary
+- **BS AC**: Number of Algebra Classrooms at Brightside Elementary
+
+Now, translate the statements into equations:
+
+1. **NS TR = 3**  
+2. **MG TR = NS CSL + NS AC + BS AC**  
+3. **NS CSL = NS TR**  
+4. **BS TR = NS AC + MG AC + 7**  
+5. **NS AC = MG AC**  
+6. **MG CSL = BS CSL**  
+7. **BS AC = 13 × NS AC**  
+8. **BS CSL = NS CSL**  
+9. **MG AC = 13**  
+10. **NS CSL = MG AC**
+
+---
+
+### **Step 2: Analyze the Equations for Consistency**
+
+From **Equation 1** and **Equation 3**:
+- **NS CSL = NS TR = 3**
+
+From **Equation 9**:
+- **MG AC = 13**
+
+From **Equation 10**:
+- **NS CSL = MG AC** → **NS CSL = 13**
+
+But this contradicts **NS CSL = 3** from **Equations 1 and 3**.
+
+This contradiction arises from **Equation 10**, which states that **NS CSL = MG AC**, and **Equation 9** states that **MG AC = 13**. This implies **NS CSL = 13**, conflicting with **NS CSL = 3**.
+
+---
+
+### **Step 3: Resolve the Contradiction**
+
+The contradiction suggests that **Equation 10** may have been misinterpreted or contains a typo. If we assume that **Equation 10** was meant to say:
+
+> **"The number of each North Star Elementary's Control Systems Lab equals each Maple Grove Elementary's Control Systems Lab"**  
+→ **NS CSL = MG CSL**
+
+Then, using **Equation 8** (**BS CSL = NS CSL**) and **Equation 6** (**MG CSL = BS CSL**), all three Control Systems Lab counts are equal.
+
+From **Equation 3**:
+- **NS CSL = NS TR = 3**
+
+Thus, **NS CSL = 3**, **MG CSL = 3**, and **BS CSL = 3**
+
+This resolves the contradiction, and all other equations now align logically.
+
+---
+
+### **Step 4: Final Answer**
+
+Given the corrected assumption (that **NS CSL = MG CSL**), and based on **Equation 3** which directly gives:
+
+$$
+\boxed{3}
+$$
+
+**Answer:** $\boxed{3}$
+Has GPT found contradiction:
+\boxed{yes}

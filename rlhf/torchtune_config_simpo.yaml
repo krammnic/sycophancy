@@ -1,0 +1,65 @@
+output_dir: qwen3_simpo_output
+model:
+  _component_: torchtune.models.qwen3.qwen3_8b_instruct
+tokenizer:
+  _component_: torchtune.models.qwen3.qwen3_tokenizer
+  path: /home/user/.cache/huggingface/hub/models--Qwen--Qwen3-8B/snapshots/b968826d9c46dd6066d109eabc6255188de91218/vocab.json
+  merges_file: /home/user/.cache/huggingface/hub/models--Qwen--Qwen3-8B/snapshots/b968826d9c46dd6066d109eabc6255188de91218/merges.txt
+  max_seq_len: null
+checkpointer:
+  _component_: torchtune.training.FullModelHFCheckpointer
+  checkpoint_dir: /home/user/.cache/huggingface/hub/models--Qwen--Qwen3-8B/snapshots/b968826d9c46dd6066d109eabc6255188de91218
+  checkpoint_files:
+  - model-00001-of-00005.safetensors
+  - model-00002-of-00005.safetensors
+  - model-00003-of-00005.safetensors
+  - model-00004-of-00005.safetensors
+  - model-00005-of-00005.safetensors
+  recipe_checkpoint: null
+  output_dir: ${output_dir}
+  model_type: QWEN3
+resume_from_checkpoint: false
+ref_checkpointer:
+  _component_: torchtune.training.FullModelHFCheckpointer
+  checkpoint_dir: /home/user/.cache/huggingface/hub/models--Qwen--Qwen3-8B/snapshots/b968826d9c46dd6066d109eabc6255188de91218
+  checkpoint_files:
+  - model-00001-of-00005.safetensors
+  - model-00002-of-00005.safetensors
+  - model-00003-of-00005.safetensors
+  - model-00004-of-00005.safetensors
+  - model-00005-of-00005.safetensors
+  recipe_checkpoint: null
+  output_dir: ${output_dir}
+  model_type: QWEN3
+dataset:
+  _component_: torchtune.datasets.hh_rlhf_helpful_dataset
+  split: train[:90%]
+seed: null
+shuffle: true
+batch_size: 4
+optimizer:
+  _component_: torch.optim.AdamW
+  fused: true
+  weight_decay: 0.05
+  lr: 2.0e-05
+lr_scheduler:
+  _component_: torchtune.training.lr_schedulers.get_cosine_schedule_with_warmup
+  num_warmup_steps: 20
+loss:
+  _component_: torchtune.rlhf.loss.SimPOLoss
+  beta: 2.0
+  label_smoothing: 0
+epochs: 1
+max_steps_per_epoch: 1000
+gradient_accumulation_steps: 8
+compile: false
+metric_logger:
+  _component_: torchtune.training.metric_logging.DiskLogger
+  log_dir: ${output_dir}/logs
+log_every_n_steps: 1
+log_peak_memory_stats: true
+log_level: INFO
+device: cuda
+dtype: bf16
+enable_activation_checkpointing: true
+enable_activation_offloading: false

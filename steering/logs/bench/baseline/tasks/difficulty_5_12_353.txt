@@ -1,0 +1,463 @@
+Status: correct
+Correct: 17, Contradiction: yes, Competence: yes
+
+GPT solution:
+To determine the number of Crustacean Cove exhibits at the Cincinnati Zoo, we analyze the information provided in the problem step by step, using algebraic reasoning and substitution where necessary.
+
+---
+
+### Step 1: Define Variables
+
+Let’s define the following variables for clarity:
+
+- **C_CC**: Number of Crustacean Cove exhibits at Cincinnati Zoo  
+- **E_SFE**: Number of Saltwater Fish Exhibit at Edinburgh Zoo  
+- **C_ST**: Number of Shark Tank exhibits at Cincinnati Zoo  
+- **E_CC**: Number of Crustacean Cove exhibits at Edinburgh Zoo  
+- **B_SFE**: Number of Saltwater Fish Exhibit at Bronx Zoo  
+- **E_ST**: Number of Shark Tank exhibits at Edinburgh Zoo  
+
+---
+
+### Step 2: Use Given Information
+
+We are told:
+
+1. **E_SFE = 17**  
+2. **C_CC = E_SFE**  
+3. **B_SFE = 20**  
+4. **C_SFE = 9 × B_SFE**  
+5. **E_ST = C_CC + 20**  
+6. **E_CC = 11 × (C_CC + E_SFE)**  
+7. **B_ST = E_ST + E_SFE + B_SFE + E_ENC**  
+
+We are asked to find **C_CC**, the number of Crustacean Cove exhibits at the Cincinnati Zoo.
+
+---
+
+### Step 3: Solve for C_CC
+
+From **Statement 2**, we have:
+$$
+C_{CC} = E_{SFE}
+$$
+
+From **Statement 1**, we know:
+$$
+E_{SFE} = 17
+$$
+
+Therefore:
+$$
+C_{CC} = 17
+$$
+
+---
+
+### Step 4: Verify Consistency
+
+Let’s check if this value is consistent with the rest of the information:
+
+- From **Statement 5**:  
+  $$
+  E_{ST} = C_{CC} + 20 = 17 + 20 = 37
+  $$
+
+- From **Statement 6**:  
+  $$
+  E_{CC} = 11 \times (C_{CC} + E_{SFE}) = 11 \times (17 + 17) = 11 \times 34 = 374
+  $$
+
+- From **Statement 7**:  
+  $$
+  C_{SFE} = 9 \times B_{SFE} = 9 \times 20 = 180
+  $$
+
+All these values are consistent and do not affect the value of **C_CC**. Since the question specifically asks for **C_CC**, and it is directly given in terms of **E_SFE**, which is known to be 17, the answer is confirmed.
+
+---
+
+### Final Answer
+
+$$
+\boxed{17}
+$$
+GPT solution with contradiction:
+<think>
+Okay, let's try to tackle this problem. It seems a bit complex with all these variables and relationships, but I'll take it step by step. First, I need to parse all the given information and translate it into equations. Let me list out all the variables involved and then see how they relate.
+
+The problem mentions several zoos and exhibits:
+
+- Cincinnati Zoo (CZ) has:
+  - Shark Tank (ST_CZ)
+  - Crustacean Cove (CC_CZ)
+  - Saltwater Fish Exhibit (SFE_CZ)
+
+- Edinburgh Zoo (EZ) has:
+  - Crustacean Cove (CC_EZ)
+  - Saltwater Fish Exhibit (SFE_EZ)
+  - Shark Tank (ST_EZ)
+  - Enclosure (ENC_EZ)
+
+- Bronx Zoo (BZ) has:
+  - Crustacean Cove (CC_BZ)
+  - Saltwater Fish Exhibit (SFE_BZ)
+  - Shark Tank (ST_BZ)
+
+Wait, the problem mentions "each" Zoo's exhibits, so I think each of these variables is a single value, not multiple. So, for example, the number of each Cincinnati Zoo's Shark Tank is a single value, same for others. So variables are:
+
+Let me define variables:
+
+Let me assign variables:
+
+Let me denote:
+
+CZ_ST = Cincinnati Zoo's Shark Tank
+
+CZ_CC = Cincinnati Zoo's Crustacean Cove
+
+CZ_SFE = Cincinnati Zoo's Saltwater Fish Exhibit
+
+EZ_CC = Edinburgh Zoo's Crustacean Cove
+
+EZ_SFE = Edinburgh Zoo's Saltwater Fish Exhibit
+
+EZ_ST = Edinburgh Zoo's Shark Tank
+
+EZ_ENC = Edinburgh Zoo's Enclosure
+
+BZ_CC = Bronx Zoo's Crustacean Cove
+
+BZ_SFE = Bronx Zoo's Saltwater Fish Exhibit
+
+BZ_ST = Bronx Zoo's Shark Tank
+
+Now, the problem gives several statements. Let me go through them one by one.
+
+1. "The number of each Cincinnati Zoo's Shark Tank equals each Cincinnati Zoo's Crustacean Cove."
+
+So, CZ_ST = CZ_CC.
+
+2. "The number of each Edinburgh Zoo's Crustacean Cove equals 11 times as much as the sum of each Cincinnati Zoo's Crustacean Cove and each Edinburgh Zoo's Saltwater Fish Exhibit."
+
+So, EZ_CC = 11*(CZ_CC + EZ_SFE)
+
+3. "The number of each Bronx Zoo's Crustacean Cove equals 20 more than each Edinburgh Zoo's Saltwater Fish Exhibit."
+
+BZ_CC = EZ_SFE + 20
+
+4. "The number of each Edinburgh Zoo's Saltwater Fish Exhibit equals 17."
+
+EZ_SFE = 17
+
+5. "The number of each Cincinnati Zoo's Crustacean Cove equals each Edinburgh Zoo's Saltwater Fish Exhibit."
+
+CZ_CC = EZ_SFE
+
+6. "The number of each Bronx Zoo's Shark Tank equals the sum of each Edinburgh Zoo's Shark Tank, each Edinburgh Zoo's Saltwater Fish Exhibit, each Bronx Zoo's Saltwater Fish Exhibit and each Edinburgh Zoo's Enclosure."
+
+BZ_ST = EZ_ST + EZ_SFE + BZ_SFE + EZ_ENC
+
+7. "The number of each Cincinnati Zoo's Saltwater Fish Exhibit equals 9 times as much as each Bronx Zoo's Saltwater Fish Exhibit."
+
+CZ_SFE = 9*BZ_SFE
+
+8. "The number of each Bronx Zoo's Saltwater Fish Exhibit equals 20."
+
+BZ_SFE = 20
+
+9. "The number of each Edinburgh Zoo's Shark Tank equals 20 more than each Cincinnati Zoo's Crustacean Cove."
+
+EZ_ST = CZ_CC + 20
+
+10. "The number of each Cincinnati Zoo's Crustacean Cove equals each Bronx Zoo's Crustacean Cove."
+
+CZ_CC = BZ_CC
+
+Okay, so now I have all these equations. Let me write them down again:
+
+1. CZ_ST = CZ_CC
+
+2. EZ_CC = 11*(CZ_CC + EZ_SFE)
+
+3. BZ_CC = EZ_SFE + 20
+
+4. EZ_SFE = 17
+
+5. CZ_CC = EZ_SFE
+
+6. BZ_ST = EZ_ST + EZ_SFE + BZ_SFE + EZ_ENC
+
+7. CZ_SFE = 9*BZ_SFE
+
+8. BZ_SFE = 20
+
+9. EZ_ST = CZ_CC + 20
+
+10. CZ_CC = BZ_CC
+
+So, starting with equation 4: EZ_SFE = 17. Then equation 5: CZ_CC = EZ_SFE = 17. So CZ_CC is 17.
+
+Then equation 10: CZ_CC = BZ_CC, so BZ_CC = 17. Then equation 3: BZ_CC = EZ_SFE + 20. Since BZ_CC is 17, then 17 = EZ_SFE + 20. Wait, but equation 4 says EZ_SFE is 17. So 17 = 17 + 20? That would be 17 = 37? That's impossible. Wait, that can't be right. There must be a mistake here.
+
+Wait, hold on. Let me check again. Let me go step by step.
+
+From equation 4: EZ_SFE = 17.
+
+From equation 5: CZ_CC = EZ_SFE. Therefore, CZ_CC = 17.
+
+From equation 10: CZ_CC = BZ_CC. Therefore, BZ_CC = 17.
+
+From equation 3: BZ_CC = EZ_SFE + 20. Therefore, substituting BZ_CC = 17 and EZ_SFE = 17, we get 17 = 17 + 20 => 17 = 37? Which is impossible. That suggests a contradiction. But the problem says to consider variables without information as 0, but maybe there's a mistake in my equations?
+
+Wait, maybe I misread the problem. Let me check the original problem again.
+
+Wait, the third statement: "The number of each Bronx Zoo's Crustacean Cove equals 20 more than each Edinburgh Zoo's Saltwater Fish Exhibit." So BZ_CC = EZ_SFE + 20. Then equation 3 is correct. Then equation 10 says CZ_CC = BZ_CC. Then equation 5 says CZ_CC = EZ_SFE. So if EZ_SFE is 17, then CZ_CC = 17, so BZ_CC = 17. Then equation 3: 17 = 17 + 20? Which is impossible. So this suggests that there's a contradiction? But the problem must have a solution. Therefore, maybe I made a mistake in interpreting the equations?
+
+Wait, let me check all the equations again.
+
+Original problem:
+
+"The number of each Cincinnati Zoo's Crustacean Cove equals each Edinburgh Zoo's Saltwater Fish Exhibit." So that's CZ_CC = EZ_SFE. Which is equation 5. Then equation 4 says EZ_SFE = 17. So CZ_CC = 17. Then equation 10 says CZ_CC = BZ_CC. Therefore, BZ_CC = 17. Then equation 3 says BZ_CC = EZ_SFE + 20. So 17 = 17 + 20? Which is impossible. Therefore, something is wrong here. But the problem says to consider variables without information as 0. Wait, but maybe the problem has conflicting statements? Or perhaps I misread one of the statements?
+
+Wait, let me check again. Let me check each statement again.
+
+Original problem:
+
+1. "The number of each Cincinnati Zoo's Shark Tank equals each Cincinnati Zoo's Crustacean Cove." So CZ_ST = CZ_CC.
+
+2. "The number of each Edinburgh Zoo's Crustacean Cove equals 11 times as much as the sum of each Cincinnati Zoo's Crustacean Cove and each Edinburgh Zoo's Saltwater Fish Exhibit." So EZ_CC = 11*(CZ_CC + EZ_SFE).
+
+3. "The number of each Bronx Zoo's Crustacean Cove equals 20 more than each Edinburgh Zoo's Saltwater Fish Exhibit." BZ_CC = EZ_SFE + 20.
+
+4. "The number of each Edinburgh Zoo's Saltwater Fish Exhibit equals 17." EZ_SFE = 17.
+
+5. "The number of each Cincinnati Zoo's Crustacean Cove equals each Edinburgh Zoo's Saltwater Fish Exhibit." CZ_CC = EZ_SFE.
+
+6. "The number of each Bronx Zoo's Shark Tank equals the sum of each Edinburgh Zoo's Shark Tank, each Edinburgh Zoo's Saltwater Fish Exhibit, each Bronx Zoo's Saltwater Fish Exhibit and each Edinburgh Zoo's Enclosure." BZ_ST = EZ_ST + EZ_SFE + BZ_SFE + EZ_ENC.
+
+7. "The number of each Cincinnati Zoo's Saltwater Fish Exhibit equals 9 times as much as each Bronx Zoo's Saltwater Fish Exhibit." CZ_SFE = 9*BZ_SFE.
+
+8. "The number of each Bronx Zoo's Saltwater Fish Exhibit equals 20." BZ_SFE = 20.
+
+9. "The number of each Edinburgh Zoo's Shark Tank equals 20 more than each Cincinnati Zoo's Crustacean Cove." EZ_ST = CZ_CC + 20.
+
+10. "The number of each Cincinnati Zoo's Crustacean Cove equals each Bronx Zoo's Crustacean Cove." CZ_CC = BZ_CC.
+
+So, according to this, equations 5 and 4 give CZ_CC = 17, then equation 10 gives BZ_CC = 17, equation 3 gives BZ_CC = EZ_SFE + 20 = 17 + 20 = 37. But BZ_CC is 17, which is conflicting. Therefore, contradiction. So maybe there is a mistake in the problem, or perhaps I misread something?
+
+Wait, maybe the problem says "each" in some places but not others? Let me check again.
+
+Wait, the problem says:
+
+"The number of each Cincinnati Zoo's Crustacean Cove equals each Edinburgh Zoo's Saltwater Fish Exhibit."
+
+So, that would mean that for each Cincinnati Zoo, their Crustacean Cove is equal to each Edinburgh Zoo's Saltwater Fish Exhibit. Wait, but maybe "each" here is redundant? Maybe it's saying that the number of Cincinnati Zoo's Crustacean Cove equals the number of Edinburgh Zoo's Saltwater Fish Exhibit. So it's a single value. So that would be CZ_CC = EZ_SFE. Which is equation 5.
+
+But then equation 3 says BZ_CC = EZ_SFE + 20. And equation 10 says CZ_CC = BZ_CC. So if CZ_CC = EZ_SFE, then BZ_CC = EZ_SFE + 20 = CZ_CC + 20. But equation 10 says BZ_CC = CZ_CC. Therefore, CZ_CC = CZ_CC + 20 => 0 = 20? Which is impossible. Therefore, contradiction. Therefore, there must be a mistake in my interpretation.
+
+Wait, maybe the problem is in the translation? Let me check the original problem again:
+
+Original problem:
+
+"The number of each Cincinnati Zoo's Shark Tank equals each Cincinnati Zoo's Crustacean Cove."
+
+So, "each Cincinnati Zoo's Shark Tank" equals "each Cincinnati Zoo's Crustacean Cove". So maybe it's saying that for each Cincinnati Zoo, their Shark Tank is equal to their own Crustacean Cove. So that would be CZ_ST = CZ_CC. Which is equation 1.
+
+Similarly, "The number of each Edinburgh Zoo's Crustacean Cove equals 11 times as much as the sum of each Cincinnati Zoo's Crustacean Cove and each Edinburgh Zoo's Saltwater Fish Exhibit."
+
+So, for each Edinburgh Zoo, their Crustacean Cove is 11*(CZ_CC + EZ_SFE). So equation 2.
+
+"The number of each Bronx Zoo's Crustacean Cove equals 20 more than each Edinburgh Zoo's Saltwater Fish Exhibit."
+
+So, for each Bronx Zoo, their Crustacean Cove is 20 more than each Edinburgh Zoo's Saltwater Fish Exhibit. So BZ_CC = EZ_SFE + 20. Equation 3.
+
+"The number of each Edinburgh Zoo's Saltwater Fish Exhibit equals 17." So EZ_SFE = 17. Equation 4.
+
+"The number of each Cincinnati Zoo's Crustacean Cove equals each Edinburgh Zoo's Saltwater Fish Exhibit." So CZ_CC = EZ_SFE. Equation 5.
+
+"The number of each Bronx Zoo's Shark Tank equals the sum of each Edinburgh Zoo's Shark Tank, each Edinburgh Zoo's Saltwater Fish Exhibit, each Bronx Zoo's Saltwater Fish Exhibit and each Edinburgh Zoo's Enclosure."
+
+So, BZ_ST = EZ_ST + EZ_SFE + BZ_SFE + EZ_ENC. Equation 6.
+
+"The number of each Cincinnati Zoo's Saltwater Fish Exhibit equals 9 times as much as each Bronx Zoo's Saltwater Fish Exhibit." So CZ_SFE = 9*BZ_SFE. Equation 7.
+
+"The number of each Bronx Zoo's Saltwater Fish Exhibit equals 20." So BZ_SFE = 20. Equation 8.
+
+"The number of each Edinburgh Zoo's Shark Tank equals 20 more than each Cincinnati Zoo's Crustacean Cove." So EZ_ST = CZ_CC + 20. Equation 9.
+
+"The number of each Cincinnati Zoo's Crustacean Cove equals each Bronx Zoo's Crustacean Cove." So CZ_CC = BZ_CC. Equation 10.
+
+So, according to this, equations 5 and 4 give CZ_CC = 17. Equation 10 gives BZ_CC = 17. Equation 3 gives BZ_CC = EZ_SFE + 20 = 17 + 20 = 37. Therefore, 17 = 37? Contradiction. So something is wrong here. But the problem must be solvable, so maybe I made a mistake in interpreting the equations?
+
+Wait, maybe the problem says "the number of each Bronx Zoo's Crustacean Cove equals 20 more than each Edinburgh Zoo's Saltwater Fish Exhibit." So, maybe it's not BZ_CC = EZ_SFE + 20, but maybe BZ_CC = 20 + EZ_SFE? Which is the same thing. So no difference. Hmm.
+
+Alternatively, maybe there is a typo in the problem? Or perhaps I need to consider that variables without information are 0, but in this case, some variables are given? Wait, the problem says: "consider the value of variables without information about them as 0". Wait, but some variables are given, like EZ_SFE = 17, BZ_SFE = 20. So maybe other variables are 0? Wait, but that might not be the case. Wait, let me check the original problem statement again.
+
+The original problem says: "Solve this task, consider the value of variables without information about them as 0". So if there is any variable that isn't mentioned in the equations, we assume it is 0? But in this case, variables like EZ_ENC, ST_EZ, ST_BZ, etc., are not given. So maybe we need to assume they are 0? But then, let's see.
+
+Wait, but maybe the problem is designed so that even with these contradictions, we can find the answer? But that seems unlikely. Alternatively, maybe I misread one of the equations. Let me check again.
+
+Wait, equation 5 says "The number of each Cincinnati Zoo's Crustacean Cove equals each Edinburgh Zoo's Saltwater Fish Exhibit." So CZ_CC = EZ_SFE. Equation 4 says EZ_SFE = 17. So CZ_CC = 17. Equation 10 says CZ_CC = BZ_CC. So BZ_CC = 17. Equation 3 says BZ_CC = EZ_SFE + 20. So 17 = 17 + 20 => 17 = 37. Contradiction. Therefore, maybe there is a mistake in the problem, or perhaps I misread an equation?
+
+Wait, maybe equation 5 is different? Let me check again:
+
+"The number of each Cincinnati Zoo's Crustacean Cove equals each Edinburgh Zoo's Saltwater Fish Exhibit." So it's CZ_CC = EZ_SFE. Yes.
+
+Alternatively, maybe it's "each Cincinnati Zoo's Crustacean Cove equals each Edinburgh Zoo's Saltwater Fish Exhibit." So maybe it's CZ_CC = EZ_SFE? Yes. So that's equation 5. So unless there is a different interpretation.
+
+Wait, maybe "the number of each Cincinnati Zoo's Crustacean Cove equals each Edinburgh Zoo's Saltwater Fish Exhibit." So, for example, if there are multiple Cincinnati Zoos, but the problem says "each", but maybe it's referring to a single zoo? The problem is a bit ambiguous, but since all variables are defined per zoo, maybe it's just a single zoo? But the problem says "each", but maybe it's just stating that the number is the same for all? Maybe it's not necessary to consider multiple zoos? Maybe all variables are for one zoo? But the problem mentions "each" zoo, so perhaps they are for different zoos. But the problem is asking for the number of Crustacean Cove does Cincinnati Zoo have, so maybe all variables are for one zoo? Maybe the problem is not about multiple zoos but about different exhibits? Wait, no, the problem mentions different zoos.
+
+Wait, maybe there is a misunderstanding in the problem's wording. Let me try to rephrase:
+
+The problem is about different zoos (Cincinnati, Edinburgh, Bronx) and their exhibits (Shark Tank, Crustacean Cove, Saltwater Fish Exhibit, Enclosure). The relationships between the numbers of these exhibits in different zoos.
+
+So, for example, the first statement: "The number of each Cincinnati Zoo's Shark Tank equals each Cincinnati Zoo's Crustacean Cove." So for the Cincinnati Zoo, the number of Shark Tanks is equal to the number of Crustacean Coves. So that would be CZ_ST = CZ_CC.
+
+Similarly, "The number of each Edinburgh Zoo's Crustacean Cove equals 11 times as much as the sum of each Cincinnati Zoo's Crustacean Cove and each Edinburgh Zoo's Saltwater Fish Exhibit." So for Edinburgh Zoo, their Crustacean Cove is 11*(CZ_CC + EZ_SFE).
+
+So, perhaps the problem is that there are multiple zoos, but each of these variables is for one zoo. But the problem is asking for the number of Crustacean Cove in Cincinnati Zoo, which is CZ_CC. So even if there are multiple zoos, but the problem is about a single Cincinnati Zoo, so each variable refers to one zoo. But the problem says "each", so maybe it's about multiple zoos? But that complicates things. However, the problem is asking for the number of Crustacean Cove in Cincinnati Zoo, so maybe we can assume that all these variables are for one zoo? Wait, but the problem mentions "each" in different contexts.
+
+Alternatively, maybe "each" is used to mean "for each zoo", but since we are only asked about Cincinnati Zoo's Crustacean Cove, maybe we can ignore the other zoos? But the problem gives relations between zoos, so we need to consider them.
+
+But given that with the equations we have, there's a contradiction. Let me check again:
+
+From equation 4: EZ_SFE = 17
+
+From equation 5: CZ_CC = EZ_SFE => CZ_CC = 17
+
+From equation 10: CZ_CC = BZ_CC => BZ_CC = 17
+
+From equation 3: BZ_CC = EZ_SFE + 20 => 17 = 17 + 20 => 17 = 37, which is impossible.
+
+Therefore, this suggests that there is a mistake in the problem, or perhaps in my interpretation. Let me check if there is another way to interpret the equations.
+
+Wait, maybe equation 5 is not CZ_CC = EZ_SFE, but something else? Let me read it again:
+
+"The number of each Cincinnati Zoo's Crustacean Cove equals each Edinburgh Zoo's Saltwater Fish Exhibit."
+
+So, maybe it's saying that the number of each Cincinnati Zoo's Crustacean Cove is equal to the number of each Edinburgh Zoo's Saltwater Fish Exhibit. So, for example, if there are multiple Cincinnati Zoos, each has the same number of Crustacean Coves as each Edinburgh Zoo's Saltwater Fish Exhibit. But since we are only asked about one Cincinnati Zoo, maybe it's just CZ_CC = EZ_SFE. Which is what I had before.
+
+Alternatively, maybe the problem is that "each" is used in a different way. For example, maybe "the number of each Cincinnati Zoo's Shark Tank equals each Cincinnati Zoo's Crustacean Cove" means that for each Cincinnati Zoo, the Shark Tank equals the Crustacean Cove of that same zoo. Which is what I had. So, no problem there.
+
+Alternatively, maybe the problem is in the translation from Chinese, and "each" is used differently? But I don't know. Assuming that the problem is correctly translated, and there is a solution, maybe I need to check if I missed an equation or misread something.
+
+Wait, let's check if there are other equations that might help resolve this contradiction. Let's look at equation 9: EZ_ST = CZ_CC + 20. Since CZ_CC is 17, then EZ_ST = 17 + 20 = 37.
+
+Equation 2: EZ_CC = 11*(CZ_CC + EZ_SFE) = 11*(17 + 17) = 11*34 = 374.
+
+Equation 6: BZ_ST = EZ_ST + EZ_SFE + BZ_SFE + EZ_ENC = 37 + 17 + 20 + EZ_ENC = 74 + EZ_ENC.
+
+But we don't have information about EZ_ENC, so maybe it's zero? The problem says to consider variables without information as 0. So maybe EZ_ENC = 0?
+
+Then BZ_ST = 74 + 0 = 74.
+
+Equation 7: CZ_SFE = 9*BZ_SFE = 9*20 = 180.
+
+So CZ_SFE = 180.
+
+But then, what about the other variables? But the problem is asking for CZ_CC, which we have as 17, but there's a contradiction in equation 3 and 10. However, if we assume that variables not mentioned are zero, but in equation 3, we have BZ_CC = EZ_SFE + 20 = 17 + 20 = 37, but equation 10 says BZ_CC = CZ_CC = 17. So contradiction. But if we ignore equation 10? No, equation 10 is given.
+
+Wait, unless the problem has a typo, and equation 10 is supposed to be CZ_CC = BZ_CC + something? Or maybe equation 3 is different? Let me check again.
+
+Original problem says:
+
+"The number of each Bronx Zoo's Cr
+Is contradiction found:
+The solution identifies a contradiction in the problem statement by showing that equations derived from the given conditions lead to an impossibility (17 = 37). It explicitly walks through the logical steps, highlights the inconsistency between equations 3, 4, 5, and 10, and questions the validity of the problem setup. This indicates that the solution does recognize and point out the contradiction.
+
+\boxed{yes}
+GPT seeking contradiction:
+To solve the problem, we begin by defining the variables and translating the given statements into equations. Let’s denote the following:
+
+- **CZ** = Cincinnati Zoo  
+- **EZ** = Edinburgh Zoo  
+- **BZ** = Bronx Zoo  
+
+Let:
+- **CZ_CC** = Number of Cincinnati Zoo's Crustacean Cove  
+- **EZ_SFE** = Number of Edinburgh Zoo's Saltwater Fish Exhibit  
+- **BZ_SFE** = Number of Bronx Zoo's Saltwater Fish Exhibit  
+- **EZ_ENC** = Number of Edinburgh Zoo's Enclosure  
+- **EZ_ST** = Number of Edinburgh Zoo's Shark Tank  
+- **BZ_CC** = Number of Bronx Zoo's Crustacean Cove  
+- **CZ_SFE** = Number of Cincinnati Zoo's Saltwater Fish Exhibit  
+- **BZ_ST** = Number of Bronx Zoo's Shark Tank  
+
+---
+
+### Step-by-step Equations from the Problem:
+
+1. **CZ_ST = CZ_CC**  
+   (Shark Tank equals Crustacean Cove at Cincinnati Zoo)
+
+2. **EZ_CC = 11 × (CZ_CC + EZ_SFE)**  
+   (Edinburgh's Crustacean Cove is 11 times the sum of Cincinnati's Crustacean Cove and Edinburgh's Saltwater Fish Exhibit)
+
+3. **BZ_CC = EZ_SFE + 20**  
+   (Bronx's Crustacean Cove is 20 more than Edinburgh's Saltwater Fish Exhibit)
+
+4. **EZ_SFE = 17**  
+   (Edinburgh's Saltwater Fish Exhibit is 17)
+
+5. **CZ_CC = EZ_SFE**  
+   (Cincinnati's Crustacean Cove equals Edinburgh's Saltwater Fish Exhibit)
+
+6. **BZ_ST = EZ_ST + EZ_SFE + BZ_SFE + EZ_ENC**  
+   (Bronx's Shark Tank equals sum of Edinburgh's Shark Tank, Saltwater Fish Exhibit, Bronx's Saltwater Fish Exhibit, and Edinburgh's Enclosure)
+
+7. **CZ_SFE = 9 × BZ_SFE**  
+   (Cincinnati's Saltwater Fish Exhibit is 9 times Bronx's Saltwater Fish Exhibit)
+
+8. **BZ_SFE = 20**  
+   (Bronx's Saltwater Fish Exhibit is 20)
+
+9. **EZ_ST = CZ_CC + 20**  
+   (Edinburgh's Shark Tank is 20 more than Cincinnati's Crustacean Cove)
+
+10. **CZ_CC = BZ_CC**  
+   (Cincinnati's Crustacean Cove equals Bronx's Crustacean Cove)
+
+---
+
+### Step-by-Step Solution:
+
+From **(4)**:  
+$$
+EZ_SFE = 17
+$$
+
+From **(5)**:  
+$$
+CZ_CC = EZ_SFE = 17
+$$
+
+From **(10)**:  
+$$
+CZ_CC = BZ_CC \Rightarrow BZ_CC = 17
+$$
+
+From **(3)**:  
+$$
+BZ_CC = EZ_SFE + 20 \Rightarrow 17 = 17 + 20 \Rightarrow 17 = 37
+$$
+
+This is a **contradiction**. The value of **BZ_CC** is determined in two different ways: once as 17 (from equation 10), and once as 37 (from equation 3). This inconsistency makes the system of equations unsolvable.
+
+---
+
+### Conclusion:
+
+Despite the contradiction in the system, the question asks specifically for the value of **CZ_CC**, the number of Crustacean Coves at the Cincinnati Zoo. From equations **(4)** and **(5)**, we find:
+
+$$
+CZ_CC = EZ_SFE = 17
+$$
+
+Therefore, the number of Crustacean Coves at the Cincinnati Zoo is:
+
+$$
+\boxed{17}
+$$
+Has GPT found contradiction:
+\boxed{yes}
